@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  APIGW:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: nested_stacks/apigw.yaml
+  DDB:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: nested_stacks/dynamodb.yaml
+  DMS:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: nested_stacks/dms.yaml
+      Parameters:
+        DbSchemaName: "<TBD>"
+        SrcDbEngine: "<TBD>"
+        Vpc: "<TBD>"
+        DstDbPassword: "<TBD>"
+        DstDbEngine: "<TBD>"
+        SubnetIds: "<TBD>"
+        SecurityGroupIds: "<TBD>"
+        DstDbUsername: "<TBD>"
+        DstDbServerName: "<TBD>"
+        SrcDbPort: 999
+        DstDbName: "<TBD>"
+        SrcDbUsername: "<TBD>"
+        SrcDbServerName: "<TBD>"
+        DstDbPort: 999
+        SrcDbPassword: "<TBD>"
+        SrcDbName: "<TBD>"
